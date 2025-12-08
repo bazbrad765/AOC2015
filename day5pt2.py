@@ -1,28 +1,40 @@
-vowels = ["a","e","i","o","u"]
-bad_strings = ["ab","cd","pq","xy"]
 nice_strings = 0
 
 with open("input5.txt","r") as f:
-    
     for line in f:
-        vowel_count = 0
+        print("Target Line: ", line)
         contains_double_up = False
-        no_bad_strings = True
-        for string in bad_strings:
-            if string in line:
-                no_bad_strings = False
-                break
+        w = False
+        
 
-        for char in line:
-            if char in vowels:
-                vowel_count += 1
-
-
-        for i in range(len(line) - 1):
-            if line[i] == line[i + 1]:
+        for i in range(len(line) - 2):
+            if line[i] == line[i + 2]:
                 contains_double_up = True
-        if contains_double_up and no_bad_strings and vowel_count >= 3:
-            nice_strings += 1
 
+
+        count = 0
+        for i in range(len(line)):
+        
+            target = line[i:(i+2)]
+
+            print("target:  ", target)
+            if len(target) >=2:
+                
+                if target in line:
+                    count += 1
+                    print("Hit found, current hits: ", count, "on target ", target)
+                    if count >= 2:
+                        w = True
+                        count = 0
+                        print("2 found - breaking  from function")
+
+ 
+        if contains_double_up and w:
+            nice_strings += 1
+        
 print(nice_strings)
 
+
+#FaiLED
+
+ 
