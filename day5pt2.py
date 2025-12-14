@@ -1,5 +1,7 @@
 nice_strings = 0
 
+##FAILED
+
 with open("input5.txt","r") as f:
     for line in f:
         print("Target Line: ", line)
@@ -35,6 +37,6 @@ with open("input5.txt","r") as f:
 print(nice_strings)
 
 
-#FaiLED
+
 
  
